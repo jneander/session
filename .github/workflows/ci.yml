@@ -108,9 +108,6 @@ jobs:
       shell: bash -eo pipefail -l {0}
       run: |
         nvm install --default ${{ matrix.node-version }}
-        if [[ "${{ matrix.node-version }}" == 0.* ]]; then
-          npm config set strict-ssl false
-        fi
         dirname "$(nvm which ${{ matrix.node-version }})" >> "$GITHUB_PATH"
 
     - name: Configure npm
